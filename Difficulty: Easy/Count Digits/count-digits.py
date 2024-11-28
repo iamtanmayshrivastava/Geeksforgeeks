@@ -2,15 +2,21 @@
 
 class Solution:
     def evenlyDivides(self, n):
-        count=0
-        m=str(n)
-        for i in m:
-            if i!='0':
-                if n%int(i)==0:
-                    count+=1
+        count = 0
+        original_n = n  # Store the original number
+        n = abs(n)  # Handle negative numbers
+        
+        while n > 0:
+            digit = n % 10  # Extract the last digit
+            if digit != 0 and original_n % digit == 0:  # Check divisibility
+                count += 1
+            n = n // 10  # Remove the last digit
+        
         return count
+    
+       
 
-
+  
 #{ 
  # Driver Code Starts
 #Initial Template for Python 3
